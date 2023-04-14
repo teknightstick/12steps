@@ -1,0 +1,7 @@
+1. AdmitPowerlessness()
+
+FUNCTION AdmitPowerlessness():
+    IF lifeUnmanageable() AND alcoholProblem():
+        RETURN "Admitted we were powerless over alcohol - that our lives had become unmanageable"
+    ELSE:
+        RETURN "Step 1 not completed"
