@@ -1,0 +1,7 @@
+2. BelieveHigherPower()
+
+FUNCTION BelieveHigherPower():
+    IF openToHigherPower():
+        RETURN "Came to believe that a Power greater than ourselves could restore us to sanity"
+    ELSE:
+        RETURN "Step 2 not completed"
