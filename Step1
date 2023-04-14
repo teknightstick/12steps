@@ -1,7 +1,25 @@
 1. AdmitPowerlessness()
 
 FUNCTION AdmitPowerlessness():
-    IF lifeUnmanageable() AND alcoholProblem():
+    lifeUnmanageableScore = 0
+    alcoholProblemScore = 0
+    
+    FOR eachNegativeAspect in lifeAspects:
+        IF eachNegativeAspect CAUSED_BY alcohol:
+            alcoholProblemScore = alcoholProblemScore + 1
+            lifeUnmanageableScore = lifeUnmanageableScore + 1
+        ELSE IF eachNegativeAspect CAUSED_BY otherFactors:
+            lifeUnmanageableScore = lifeUnmanageableScore + 1
+        ELSE:
+            CONTINUE
+
+    IF lifeUnmanageableScore > threshold_1 AND alcoholProblemScore > threshold_2:
         RETURN "Admitted we were powerless over alcohol - that our lives had become unmanageable"
+    ELSE IF lifeUnmanageableScore > threshold_1 AND alcoholProblemScore <= threshold_2:
+        RETURN "Life is unmanageable, but alcohol is not the main problem"
+    ELSE IF lifeUnmanageableScore <= threshold_1 AND alcoholProblemScore > threshold_2:
+        RETURN "Alcohol is a problem, but life is still manageable"
     ELSE:
         RETURN "Step 1 not completed"
+
+*Note: `threshold_1` and `threshold_2` are predefined values to determine if the person's life is unmanageable and if alcohol is a significant problem. The specific values should be determined based on individual circumstances and personal reflection.
